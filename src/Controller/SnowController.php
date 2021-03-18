@@ -79,7 +79,7 @@ class SnowController extends AbstractController
     /**
      * @Route("/snowflake/edit/{id<\d+>}", name="app_snowflake_edit")
      */
-    public function edit(Request $request): Response
+    public function edit(Request $request, EntityManagerInterface $manager, Snowflake $snowflake): Response
     {
         $form = $this->createForm(SnowflakeType::class, $snowflake);
 
@@ -93,6 +93,27 @@ class SnowController extends AbstractController
 
         return $this->render('snow/edit.html.twig', [
             'form' => $form->createView(),
+            // 'snowflake' => $snowflake,
         ]);
+    }
+
+    /**
+     * @Route("/snowflake/delete/{id<\d+>}",name="app_snowflake_delete", methods="DELETE")
+     */
+    public function delete(Request $request, EntityManagerInterface $manager, Snowflake $snowflake)
+    {
+        if (
+            $this->isCsrfTokenValid(
+                'snowflake_deletion_'.$snowflake->getId(),
+                $request->request->get('csrf_token')
+            )
+            ) {
+            $manager->remove($snowflake);
+            $manager->flush();
+
+            $this->addFlash('success', 'Your snowflake has been deleted successfully');
+        }
+
+        return $this->redirectToRoute('app_index');
     }
 }

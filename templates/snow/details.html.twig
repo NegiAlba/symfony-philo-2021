@@ -12,9 +12,13 @@
             <p class="snow-flake-date">Creation Date : {{ snowflake.createdAt|date('d/m/Y H:i:s') }}</p>
         </div>
     </div>
-    
-    <div class="snow-actions">
-        <a href="{{path('app_snowflake_edit', {id:snowflake.id}) }}" class="snowflake-edit">Edit this snowflake</a>
-        <a class="snowflake-delete">Delete this snowflake</a>
-    </div>
+        <div class="snow-actions">
+            <a href="{{path('app_snowflake_edit', {id:snowflake.id}) }}" class="snowflake-edit">Edit this snowflake</a>
+            {# <a class="snowflake-delete">Delete this snowflake</a> #}
+            <form action="{{path('app_snowflake_delete', {id:snowflake.id}) }}" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token('snowflake_deletion_' ~ snowflake.id) }}">
+                <input type="submit" value="Delete this snowflake">
+            </form>
+        </div>
 {% endblock %}
