@@ -14,8 +14,14 @@
         {% endblock %}
     </head>
     <body>
-        {% include './common/header.html.twig' %}
+
+        {# {% include './common/header.html.twig' %} correspond à une déclaration de récupération d'un fichier #}
+        {# {{ include('./common/header.html.twig') }} correspond à la fonction include qui peut avoir des paramtères pour le fichier à inclure #}
+
+        {{ include('./common/header.html.twig') }}
+        <div class="container">
         {% block body %}{% endblock %}
-        {% include './common/footer.html.twig' %}
+        </div>
+        {{ include('./common/footer.html.twig') }}
     </body>
 </html>

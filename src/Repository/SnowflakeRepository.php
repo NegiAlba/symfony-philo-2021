@@ -7,8 +7,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Snowflake|null find($id, $lockMode = null, $lockVersion = null)
- * @method Snowflake|null findOneBy(array $criteria, array $orderBy = null)
+ * @method null|Snowflake find($id, $lockMode = null, $lockVersion = null)
+ * @method null|Snowflake findOneBy(array $criteria, array $orderBy = null)
  * @method Snowflake[]    findAll()
  * @method Snowflake[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */

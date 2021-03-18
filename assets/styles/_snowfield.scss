@@ -1,9 +1,11 @@
 .snow-container {
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 4rem;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     width: 100%;
-
+    a{
+        text-decoration: none;
+    }
     .snow-flake {
         color:white;
         display: grid;
@@ -18,23 +20,52 @@
         transition: 0.4s;
         background:  url('../../public/images/snowflake.jpg') no-repeat right;
         background-size: cover;
-        font-size:0.75rem;
+        font-size:0.65rem;
         .snow-flake-name {
-            text-align: end;
             margin-left: 100px;
-            font-size:1rem;
+            font-size:1em;
         }   
         .snow-flake-description {
-            text-align: end;
             margin-left: 100px;
         }   
         .snow-flake-number {
-            text-align: end;
             margin-left: 100px;
         }   
         .snow-flake-date {
-            text-align: end;
             margin-left: 100px;
+            font-size:0.40em;
+        }   
+    }
+    .snow-flake-details{
+        color:white;
+        display: grid;
+        place-items: center;
+        background: lightpink;
+        margin: 30px auto;
+        width: 768px;
+        height: 768px;
+        border-radius: 5%;
+        box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        cursor: pointer;
+        transition: 0.4s;
+        background:  url('../../public/images/snowflake.jpg') no-repeat;
+        background-position: 80% 75%;
+        // background-size: cover;
+        font-size:2rem;
+        .snow-flake-name {
+            margin-left: 200px;
+            font-size:1em;
+        }   
+        .snow-flake-description {
+            margin-left: 175px;
+            padding:10px;
+        }   
+        .snow-flake-number {
+            margin-left: 200px;
+        }   
+        .snow-flake-date {
+            margin-left: 200px;
+            font-size:0.5em;
         }   
     }
     .snow-flake:hover {

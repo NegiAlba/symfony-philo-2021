@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exercice Basiques - Edit Snowflake {% endblock %}
+
+{% block body %}
+    <h3>Voici mon formulaire d'édition</h3>
+    
+    {{ include('./common/_form.html.twig', {submitButtonText:'Edit your snowflake'}) }}
+{% endblock %}

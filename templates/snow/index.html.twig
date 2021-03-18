@@ -3,13 +3,17 @@
 {% block title %}Exercice Basiques - Liste{% endblock %}
 
 {% block body %}
+
+    <h3> Voici l'emplacement de ma liste de snowflakes qui possède {{ snowflakes|length }} élements.</h3>
+
+    <div class="snow-container">
     {% for snowflake in snowflakes %}
-        <div class="card">
-            <p class="card-content">{{snowflake.name}}</p>
-            <p class="card-content">{{snowflake.description}}</p>
-            <p class="card-content">Son nombre préféré est : {{snowflake.luckyNumber}}</p>
-            <p class="card-content">Née le :{{snowflake.createdAt|date('d-m-Y H:i:s')}}</p>
-        </div>
-        <hr>
+        <a href="{{ path('app_snowflake_show', {id:snowflake.id}) }}">
+            <div class="snow-flake">
+                    <p class="snow-flake-name">{{ snowflake.name }}</p>
+                    <p class="snow-flake-number">Lucky Number : {{ snowflake.luckyNumber }}</p>
+            </div>
+        </a>
     {% endfor %}
+    </div>
 {% endblock %}

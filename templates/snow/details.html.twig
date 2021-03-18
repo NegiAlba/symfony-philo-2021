@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exercice Basiques - Details{% endblock %}
+
+{% block body %}
+
+    <div class="snow-container">
+        <div class="snow-flake-details">
+            <p class="snow-flake-name">{{ snowflake.name }}</p>
+            <p class="snow-flake-number">Lucky Number : {{ snowflake.luckyNumber }}</p>
+            <p class="snow-flake-description">Description : {{ snowflake.description }}</p>
+            <p class="snow-flake-date">Creation Date : {{ snowflake.createdAt|date('d/m/Y H:i:s') }}</p>
+        </div>
+    </div>
+    
+    <div class="snow-actions">
+        <a href="{{path('app_snowflake_edit', {id:snowflake.id}) }}" class="snowflake-edit">Edit this snowflake</a>
+        <a class="snowflake-delete">Delete this snowflake</a>
+    </div>
+{% endblock %}
