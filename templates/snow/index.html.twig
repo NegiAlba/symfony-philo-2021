@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exercice Basiques - Liste{% endblock %}
+
+{% block body %}
+    {% for snowflake in snowflakes %}
+        <div class="card">
+            <p class="card-content">{{snowflake.name}}</p>
+            <p class="card-content">{{snowflake.description}}</p>
+            <p class="card-content">Son nombre préféré est : {{snowflake.luckyNumber}}</p>
+            <p class="card-content">Née le :{{snowflake.createdAt|date('d-m-Y H:i:s')}}</p>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}
